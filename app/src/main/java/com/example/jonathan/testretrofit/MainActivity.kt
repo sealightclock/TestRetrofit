@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         }
 
         // Fetch posts from the API
-        RetrofitInstance.apiService.getPosts().enqueue(object : Callback<List<Post>> {
+        RetrofitInstance.retrofitApi.getPosts().enqueue(object : Callback<List<Post>> {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
                 if (response.isSuccessful) {
                     // Handle the response, for example, display posts
