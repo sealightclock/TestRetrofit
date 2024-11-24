@@ -4,6 +4,7 @@ import android.util.Log
 
 private const val TAG = "TR: PostModel"
 
+// This needs to  match with the web JSON file:
 data class Post(
     val id: Int,
     val title: String,
@@ -23,5 +24,3 @@ class PostRepository {
         )
     }
 }
-
-
