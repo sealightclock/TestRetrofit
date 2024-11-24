@@ -1,5 +1,9 @@
 package com.example.jonathan.testretrofit
 
+import android.util.Log
+
+private const val TAG = "TR: PostModel"
+
 data class Post(
     val id: Int,
     val title: String,
@@ -7,8 +11,10 @@ data class Post(
 )
 
 class PostRepository {
-    fun getPosts(): List<Post> {
-        // TODO: Replace this test list:
+    // This gets test data without calling RESTful API, useful sometimes:
+    fun getDataByTest(): List<Post> {
+        Log.d(TAG, "PostRepository: getDataByTest");
+
         return listOf(
             Post(1, "Title 1", "Body 1"),
             Post(2, "Title 2", "Body 2")

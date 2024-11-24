@@ -23,7 +23,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
 
+        // Create ViewModel:
         viewModel = ViewModelProvider(this)[PostViewModel::class.java]
+        // Update ViewModel:
+        viewModel.getData()
 
         setContent {
             /*TestRetrofitTheme {
