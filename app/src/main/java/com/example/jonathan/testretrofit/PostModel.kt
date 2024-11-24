@@ -10,10 +10,12 @@ data class Post(
     val body: String
 )
 
+// TODO: Implement different ways of getting data:
 class PostRepository {
     // This gets test data without calling RESTful API, useful sometimes:
-    fun getDataByTest(): List<Post> {
-        Log.d(TAG, "PostRepository: getDataByTest");
+    @Suppress("RedundantSuspendModifier")
+    suspend fun getDataByTest(): List<Post> {
+        Log.d(TAG, "PostRepository: getDataByTest")
 
         return listOf(
             Post(1, "Title 1", "Body 1"),

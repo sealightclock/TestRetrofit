@@ -27,6 +27,10 @@ class MainActivity : ComponentActivity() {
         viewModel = ViewModelProvider(this)[PostViewModel::class.java]
         // Update ViewModel:
         viewModel.getData()
+        // Observe ViewModel (for debugging purposes only):
+        viewModel.posts.observe(this) {
+            Log.v(TAG, "onCreate: viewModel.posts.observe: $it")
+        }
 
         setContent {
             /*TestRetrofitTheme {
