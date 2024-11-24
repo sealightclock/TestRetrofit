@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
 import com.example.jonathan.testretrofit.ui.theme.TestRetrofitTheme
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,18 +17,25 @@ import retrofit2.Response
 private const val TAG = "TR: MainActivity"
 
 class MainActivity : ComponentActivity() {
+    private lateinit var viewModel: PostViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
+
+        viewModel = ViewModelProvider(this)[PostViewModel::class.java]
+
         setContent {
-            TestRetrofitTheme {
+            /*TestRetrofitTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
-            }
+            }*/
+
+            PostListView(viewModel)
         }
 
         // Fetch posts from the API

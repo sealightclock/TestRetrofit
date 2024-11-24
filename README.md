@@ -2,5 +2,5 @@
 
 Kotlin
 Jetpack Compose
-MVVM
+MVVM Clean (Repository)
 Retrofit
