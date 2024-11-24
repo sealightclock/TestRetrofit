@@ -1,6 +1,7 @@
 package com.example.jonathan.testretrofit
 
 import android.util.Log
+import retrofit2.awaitResponse
 
 private const val TAG = "TR: PostModel"
 
@@ -22,5 +23,24 @@ class PostRepository {
             Post(1, "Title 1", "Body 1"),
             Post(2, "Title 2", "Body 2")
         )
+    }
+
+    // This gets data from web by Retrofit RESTful API:
+    suspend fun getDataFromWebByRetrofit(): List<Post> {
+        Log.d(TAG, "PostRepository: getDataFromWebByRetrofit")
+
+        val response = RetrofitInstance.retrofitApi.getPosts().awaitResponse()
+
+        val newPosts = if (response.isSuccessful) {
+            Log.v(TAG, "PostRepository: getDataFromWebByRetrofit: response.isSuccessful")
+
+            response.body() ?: emptyList()
+        } else { // Handle error cases
+            Log.e(TAG, "PostRepository: getDataFromWebByRetrofit: response.message=[${response.message()}]")
+
+            emptyList()
+        }
+
+        return newPosts
     }
 }

@@ -25,18 +25,18 @@ class PostViewModel : ViewModel() {
 
     // Getting data:
     fun getData(dataSourceType: DataSourceType) {
+        Log.d(TAG, "getData: dataSourceType=[$dataSourceType]")
+
         viewModelScope.launch(Dispatchers.IO) {
-            val posts =
+            val newPosts =
                 when (dataSourceType) {
                     DataSourceType.Test -> repository.getDataByTest()
-                    DataSourceType.WebByRetrofit -> {
-                        Log.e(TAG, "getData: Not yet supported dataSourceType !")
-
-                        emptyList()
-                    }
+                    DataSourceType.WebByRetrofit -> repository.getDataFromWebByRetrofit()
                 }
 
-            _posts.postValue(posts)
+            Log.v(TAG, "getData: newPosts=[$newPosts]")
+
+            _posts.postValue(newPosts)
         }
     }
 }
