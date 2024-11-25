@@ -16,6 +16,7 @@ private const val TAG = "TR: PostViewModel"
 
 enum class DataSourceType {
     Test,
+    WebByHttpUrlConnection,
     WebByRetrofit
 }
 
@@ -36,9 +37,13 @@ class PostViewModel : ViewModel() {
                 when (dataSourceType) {
                     DataSourceType.Test -> repository.getDataByTest()
                     DataSourceType.WebByRetrofit -> repository.getDataFromWebByRetrofit()
+                    DataSourceType.WebByHttpUrlConnection -> repository.getDataFromWebByHttpUrlConnection()
                 }
 
-            Log.v(TAG, "getData: newPosts=[$newPosts]")
+            // Logging:
+            newPosts.forEach { post ->
+                Log.v(TAG, "getData: dataSourceType=[$dataSourceType]: post.id=[${post.id}]")
+            }
 
             _posts.postValue(newPosts)
         }

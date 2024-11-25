@@ -2,5 +2,8 @@
 
 Kotlin
 Jetpack Compose
-MVVM Clean (Repository)
-Retrofit
+MVVM Clean
+Repository
+    Test data
+    HttpURLConnection
+    Retrofit
