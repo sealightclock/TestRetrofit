@@ -7,6 +7,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 
+/**
+ * This is the View part of MVVM Clean.
+ */
+
 @Composable
 fun PostItemView(post: Post) {
     Column {
@@ -29,6 +33,7 @@ fun PostListView(viewModel: PostViewModel) {
     // Convert LiveData to State for view recomposability:
     val posts = viewModel.posts.observeAsState(emptyList())
 
+    // Use LazyColumn for better memory and performance and scrollability:
     LazyColumn {
         items(posts.value) { post ->
             PostItemView(post)

@@ -6,6 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.ViewModelProvider
 
+/**
+ * In the MVVM Clean architecture, the Activity contains only a View with a ViewModel.
+ */
+
 private const val TAG = "TR: MainActivity"
 
 class MainActivity : ComponentActivity() {

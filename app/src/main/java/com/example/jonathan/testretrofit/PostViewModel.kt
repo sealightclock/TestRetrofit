@@ -8,6 +8,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * This contains the ViewModel part of the MVVM Clean architecture.
+ */
+
 private const val TAG = "TR: PostViewModel"
 
 enum class DataSourceType {
