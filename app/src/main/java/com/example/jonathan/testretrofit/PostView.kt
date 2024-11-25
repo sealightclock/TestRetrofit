@@ -1,6 +1,8 @@
 package com.example.jonathan.testretrofit
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -24,9 +26,11 @@ fun PostItemView(post: Post) {
 
 @Composable
 fun PostListView(viewModel: PostViewModel) {
-    Column {
-        // Observe LiveData as a State so that the view can be recomposed:
-        viewModel.posts.observeAsState().value?.forEach { post ->
+    // Convert LiveData to State for view recomposability:
+    val posts = viewModel.posts.observeAsState(emptyList())
+
+    LazyColumn {
+        items(posts.value) { post ->
             PostItemView(post)
         }
     }
