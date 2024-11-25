@@ -9,11 +9,13 @@ import retrofit2.http.GET
  * This handles getting data from the web by Retrofit RESTful API.
  */
 
+// The complete Url is: BASE_URL + RELATIVE_URL:
 private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+private const val RELATIVE_URL = "posts"
 
 // Define Retrofit API:
 interface RetrofitApi {
-    @GET("posts")
+    @GET(RELATIVE_URL)
     fun getPosts(): Call<List<Post>>
 }
 
