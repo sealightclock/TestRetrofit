@@ -37,9 +37,9 @@ class PostViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val newPosts =
                 when (dataSourceType) {
-                    DataSourceType.Test -> repository.getDataByTest()
-                    DataSourceType.WebByRetrofit -> repository.getDataFromWebByRetrofit()
-                    DataSourceType.WebByHttpUrlConnection -> repository.getDataFromWebByHttpUrlConnection()
+                    DataSourceType.Test -> repository.fetchDataByTest()
+                    DataSourceType.WebByRetrofit -> repository.fetchDataFromWebByRetrofit()
+                    DataSourceType.WebByHttpUrlConnection -> repository.fetchDataFromWebByHttpUrlConnection()
                 }
 
             // Logging:
