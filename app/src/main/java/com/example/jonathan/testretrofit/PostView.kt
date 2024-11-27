@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import com.example.jonathan.testretrofit.model.Post
 
 /**
  * This is the View part of MVVM Clean.

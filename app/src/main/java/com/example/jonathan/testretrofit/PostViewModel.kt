@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.jonathan.testretrofit.model.Post
+import com.example.jonathan.testretrofit.model.PostRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

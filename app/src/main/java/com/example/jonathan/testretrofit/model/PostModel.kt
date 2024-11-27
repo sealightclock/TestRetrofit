@@ -1,4 +1,4 @@
-package com.example.jonathan.testretrofit
+package com.example.jonathan.testretrofit.model
 
 import android.util.Log
 import com.google.gson.Gson

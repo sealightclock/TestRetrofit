@@ -1,4 +1,4 @@
-package com.example.jonathan.testretrofit
+package com.example.jonathan.testretrofit.model
 
 import retrofit2.Call
 import retrofit2.Retrofit
