@@ -10,17 +10,16 @@ private const val TAG = "TR: PostModel"
  */
 class PostRepository {
     // This fetches test data without calling RESTful API, useful sometimes:
-    @Suppress("RedundantSuspendModifier")
-    suspend fun fetchDataByTest(): List<Post> {
+    fun fetchDataByTest(): List<Post> {
         Log.d(TAG, "PostRepository: fetchDataByTest")
 
         return listOf(
-            Post(1, "Title 1", "Body 1"),
-            Post(2, "Title 2", "Body 2")
+            Post(1, 1, "Title 1", "Body 1"),
+            Post(2, 2, "Title 2", "Body 2")
         )
     }
 
-    // This fetchs data from the web by Retrofit RESTful API:
+    // This fetches data from the web by Retrofit RESTful API:
     suspend fun fetchDataFromWebByRetrofit(): List<Post> {
         Log.d(TAG, "PostRepository: fetchDataFromWebByRetrofit")
 

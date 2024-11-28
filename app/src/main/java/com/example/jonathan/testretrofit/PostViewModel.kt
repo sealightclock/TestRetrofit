@@ -47,6 +47,7 @@ class PostViewModel : ViewModel() {
                 Log.v(TAG, "getData: dataSourceType=[$dataSourceType]: post.id=[${post.id}]")
             }
 
+            // Update internal _posts:
             _posts.postValue(newPosts)
         }
     }

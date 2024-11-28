@@ -12,14 +12,7 @@ import java.net.URL
  * - repository to handle different data sources
  */
 
-// The complete Url is: BASE_URL + RELATIVE_URL:
-const val BASE_URL = "https://jsonplaceholder.typicode.com/"
-const val RELATIVE_URL = "posts"
-
 private const val TAG = "TR: PostModel"
-
-// Test URL - a Json file with a list of users:
-val url = URL(BASE_URL + RELATIVE_URL)
 
 // Data from web by HttpURLConnection
 class HttpUtil {
@@ -28,6 +21,8 @@ class HttpUtil {
         Log.d(TAG, "HttpUtil: getData")
 
         val response = StringBuilder()
+
+        val url = URL(BASE_URL + RELATIVE_URL)
 
         val connection = url.openConnection() as HttpURLConnection
         connection.requestMethod = "GET"

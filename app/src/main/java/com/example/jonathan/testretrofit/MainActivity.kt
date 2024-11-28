@@ -16,6 +16,7 @@ private const val TAG = "TR: MainActivity"
 class MainActivity : ComponentActivity() {
     // Always late-init the ViewModel:
     private lateinit var viewModel: PostViewModel
+    // This is to switch data source type:
     private var dataSourceType by Delegates.notNull<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
